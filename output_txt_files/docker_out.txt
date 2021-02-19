@@ -1,1 +1,66 @@
-<paste log output from Docker prediction, here>
+$ ./run_docker.sh
+Sending build context to Docker daemon  1.088MB
+Step 1/6 : FROM python:3.7.3-stretch
+ ---> 34a518642c76
+Step 2/6 : WORKDIR /app
+ ---> Using cache
+ ---> 132ef6025b26
+Step 3/6 : COPY . app.py /app/
+ ---> Using cache
+ ---> 2e460733ece1
+Step 4/6 : RUN pip install --upgrade pip --no-cache-dir &&    pip install --trusted-host pypi.python.org -r requirements.txt --no-cache-dir
+ ---> Using cache
+ ---> 4dae1a6c473a
+Step 5/6 : EXPOSE 80
+ ---> Using cache
+ ---> d520a6a93784
+Step 6/6 : CMD ["python", "app.py"]
+ ---> Using cache
+ ---> 5326e48e1039
+Successfully built 5326e48e1039
+Successfully tagged api:latest
+SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
+REPOSITORY                        TAG              IMAGE ID       CREATED          SIZE
+api                               latest           5326e48e1039   53 seconds ago   1.19GB
+<none>                            <none>           862b9a527184   13 minutes ago   1.19GB
+hadolint/hadolint                 latest           3acb0ae9962a   28 hours ago     8.97MB
+sabribouchlema/udagram-frontend   latest           9db531c099c6   5 weeks ago      1.47GB
+<none>                            <none>           388e49f926b4   5 weeks ago      943MB
+<none>                            <none>           b8fd75551a5c   5 weeks ago      943MB
+<none>                            <none>           ec3805597523   5 weeks ago      943MB
+<none>                            <none>           879a4d98eae7   5 weeks ago      943MB
+<none>                            <none>           36498de19881   5 weeks ago      943MB
+<none>                            <none>           5a54c23f15d8   5 weeks ago      943MB
+<none>                            <none>           35136d20883a   5 weeks ago      943MB
+<none>                            <none>           23676b5bbfd7   5 weeks ago      943MB
+<none>                            <none>           14f53278ba83   5 weeks ago      1.1GB
+<none>                            <none>           05c21808b2ca   5 weeks ago      1.1GB
+<none>                            <none>           bd0d3f14b176   5 weeks ago      1.1GB
+<none>                            <none>           f9f4ccd5d302   5 weeks ago      943MB
+sabribouchlema/udagram-feed-api   latest           22fa617b1ccb   5 weeks ago      1.1GB
+<none>                            <none>           dbc062f9e8b5   5 weeks ago      1.45GB
+<none>                            <none>           15bee6ceaacd   5 weeks ago      1.1GB
+python                            3.7-alpine3.11   aae297762d91   2 months ago     41.2MB
+curlimages/curl                   7.74.0           69441d1c1b51   2 months ago     11.8MB
+node                              13               2b9604a36e49   9 months ago     943MB
+isjustintime/simple-node          latest           ad446f8e7ef2   10 months ago    942MB
+python                            3.7.3-stretch    34a518642c76   20 months ago    929MB
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 257-924-019
+[2021-02-19 22:36:30,687] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2021-02-19 22:36:30,698] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-02-19 22:36:30,706] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-02-19 22:36:30,709] INFO in app: Output prediction value: [20.35373177134412]
+172.17.0.1 - - [19/Feb/2021 22:36:30] "POST /predict HTTP/1.1" 200 -
