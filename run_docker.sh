@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Build image and add a descriptive tag
-docker build --tag=api .
+docker build --tag=ml-microservice-api .
 
 # List docker images
 docker image ls
