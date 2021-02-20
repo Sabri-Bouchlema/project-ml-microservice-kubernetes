@@ -1,4 +1,6 @@
-<include a CircleCI status badge, here>
+
+# Example:
+![CircleCI](https://circleci.com/gh/Sabri-Bouchlema/project-ml-microservice-kubernetes.svg?style=svg)
 
 ## Project Overview
 
